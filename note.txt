@@ -1,0 +1,9 @@
+Q:
+// 没配置下面的规则，照样能转换ttf
+{
+  test: /\.(woff|woff2|eot|ttf|otf)$/i,
+  type: 'asset/resource',
+},
+
+
+Q:webpack-dev-server不能监听到index.html的变化？？？
