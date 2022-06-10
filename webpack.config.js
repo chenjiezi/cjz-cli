@@ -3,20 +3,19 @@
  * @Author: chenjz
  * @Date: 2022-06-06 11:58:30
  * @LastEditors: chenjz
- * @LastEditTime: 2022-06-08 17:27:11
+ * @LastEditTime: 2022-06-10 16:53:50
  */
 const path = require('path')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const mode = process.env.NODE_ENV === 'development'
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: {
     index: './src/index.js',
-    // print: './src/assets/js/print.js'
   },
-  // devtool: 'inline-source-map', // 开启source map方便追踪到error和warning在源代码的原始位置（副作用是增大体积）
+  // devtool: 'source-map', // 开启source map方便追踪到error和warning在源代码的原始位置（副作用是增大体积）
   devServer: {
     static: {
       // html文件没有参与打包，需要额外加入
@@ -46,6 +45,20 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: 'single',
+    minimizer: [
+      new CssMinimizerPlugin(),
+      '...'
+    ]
+    // splitChunks: {
+    //   cacheGroups: {
+    //     styles: {
+    //       name: 'styles',
+    //       type: 'css/mini-extract',
+    //       chunks: 'all',
+    //       enforce: true
+    //     }
+    //   }
+    // }
   },
   module: {
     rules: [
@@ -61,10 +74,11 @@ module.exports = {
       },
       // css | less
       {
-        test: /\.(c|le)ss$/i,
+        test: /\.(le|c)ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          // 'style-loader',
+          process.env.NODE_ENV === 'production'
+            ? MiniCssExtractPlugin.loader
+            : 'style-loader',
           'css-loader',
           'less-loader'
         ]
