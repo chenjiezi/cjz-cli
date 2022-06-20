@@ -3,12 +3,21 @@
  * @Author: chenjz
  * @Date: 2022-06-06 11:58:30
  * @LastEditors: chenjz
- * @LastEditTime: 2022-06-10 16:53:50
+ * @LastEditTime: 2022-06-20 16:53:05
  */
 const path = require('path')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const FileListPlugin = require('./plugin/file-list-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+
+// 修改文件内容
+function optimize(str) {
+  return ['displays', 'assets', 'symbols'].reduce((pre, cur) => {
+    return pre.replace(new RegExp(`${cur}\/`, 'g'), `static/${cur}/`)
+  }, str.toString())
+}
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -35,6 +44,34 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].css',
       ignoreOrder: false,
+    }),
+    // new FileListPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'src/assets/3D/**/*',
+          to: '',
+          // to({ context, absoluteFilename }) {
+          //   console.log('path.relative(context, absoluteFilename):', path.relative(context, absoluteFilename));
+          //   return `static/3D/${path.relative(context, absoluteFilename)}`;
+          // },
+          // to: '[name][ext]',
+          transform(content, path) {
+            // console.log('contentToString:', content.toString());
+            // console.log('path:', path);
+            return /(.json)$|(.md)$/.test(path) ? optimize(content) : content
+          }
+        },
+        {
+          from: 'src/assets/3D/test.json',
+          to: 'a/b/',
+          transform(content, path) {
+            // console.log('contentToString:', content.toString());
+            // console.log('path:', path);
+            return /(.json)$|(.md)$/.test(path) ? optimize(content) : content
+          }
+        },
+      ]
     })
   ],
   output: {
