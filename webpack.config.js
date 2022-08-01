@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-06-06 11:58:30
  * @LastEditors: chenjz
- * @LastEditTime: 2022-06-20 16:53:05
+ * @LastEditTime: 2022-08-01 22:52:46
  */
 const path = require('path')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
@@ -11,30 +11,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const FileListPlugin = require('./plugin/file-list-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-
-// 修改文件内容
-function optimize(str) {
-  return ['displays', 'assets', 'symbols'].reduce((pre, cur) => {
-    return pre.replace(new RegExp(`${cur}\/`, 'g'), `static/${cur}/`)
-  }, str.toString())
-}
+const { VueLoaderPlugin } = require('vue-loader')
+// console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
 
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: './src/index.js',
+    index: './src/main.js',
   },
   // devtool: 'source-map', // 开启source map方便追踪到error和warning在源代码的原始位置（副作用是增大体积）
-  devServer: {
-    static: {
-      // html文件没有参与打包，需要额外加入
-      directory: path.join(__dirname, 'src/index.html')
-    },
-    compress: true,
-    port: 9527,
-    hot: true, // 从 webpack-dev-server v4.0.0 开始，热模块替换是默认开启的
-    // liveReload: true,
-  },
+  // HMR
+  // devServer: {},
   plugins: [
     new HtmlwebpackPlugin({
       title: 'Development',
@@ -45,34 +32,8 @@ module.exports = {
       filename: 'static/css/[name].css',
       ignoreOrder: false,
     }),
+    new VueLoaderPlugin()
     // new FileListPlugin(),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: 'src/assets/3D/**/*',
-          to: '',
-          // to({ context, absoluteFilename }) {
-          //   console.log('path.relative(context, absoluteFilename):', path.relative(context, absoluteFilename));
-          //   return `static/3D/${path.relative(context, absoluteFilename)}`;
-          // },
-          // to: '[name][ext]',
-          transform(content, path) {
-            // console.log('contentToString:', content.toString());
-            // console.log('path:', path);
-            return /(.json)$|(.md)$/.test(path) ? optimize(content) : content
-          }
-        },
-        {
-          from: 'src/assets/3D/test.json',
-          to: 'a/b/',
-          transform(content, path) {
-            // console.log('contentToString:', content.toString());
-            // console.log('path:', path);
-            return /(.json)$|(.md)$/.test(path) ? optimize(content) : content
-          }
-        },
-      ]
-    })
   ],
   output: {
     filename: 'static/js/[name].[contenthash].js',
@@ -86,19 +47,14 @@ module.exports = {
       new CssMinimizerPlugin(),
       '...'
     ]
-    // splitChunks: {
-    //   cacheGroups: {
-    //     styles: {
-    //       name: 'styles',
-    //       type: 'css/mini-extract',
-    //       chunks: 'all',
-    //       enforce: true
-    //     }
-    //   }
-    // }
   },
   module: {
     rules: [
+      // vue
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       // babel
       {
         test: /\.js$/,
@@ -109,15 +65,15 @@ module.exports = {
           }
         }
       },
-      // css | less
+      // css | scss
       {
-        test: /\.(le|c)ss$/i,
+        test: /\.(sc|c)ss$/i,
         use: [
           process.env.NODE_ENV === 'production'
             ? MiniCssExtractPlugin.loader
-            : 'style-loader',
+            : 'vue-style-loader',
           'css-loader',
-          'less-loader'
+          'sass-loader'
         ]
       },
       // Asset Modules
