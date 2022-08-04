@@ -4,8 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development webpack serve --open",
-    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "cross-env NODE_ENV=development webpack serve --open --progress",
+    "build": "cross-env NODE_ENV=production webpack --progress",
     "watch": "webpack --watch"
   },
   "devDependencies": {

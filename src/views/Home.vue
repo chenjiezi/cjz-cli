@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-03 20:22:07
+ * @LastEditTime: 2022-08-04 15:44:26
 -->
 <template>
   <div class="Home">
@@ -26,8 +26,6 @@ export default {
   computed: {},
   watch: {},
   created() {
-    const aaa = document.getElementById('app')
-    console.log('aaa:', aaa);
   },
   mounted() { },
   methods: {}
