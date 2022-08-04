@@ -4,9 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development webpack serve --open --progress",
-    "build": "cross-env NODE_ENV=production webpack --progress",
-    "watch": "webpack --watch"
+    "serve": "webpack serve --open --progress --config build/webpack.dev.js",
+    "build": "webpack --progress --config build/webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -26,7 +25,8 @@
     "webpack": "^5.73.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.3"
+    "webpack-dev-server": "^4.9.3",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "vue": "^2.6.11",
