@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-01 22:07:34
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-02 10:58:24
+ * @LastEditTime: 2022-08-03 11:32:44
 -->
 <template>
   <div id="app">
@@ -17,11 +17,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import './assets/css/k.scss';
-:root {
-  h1 {
-    color: red;
-  }
-}
+<style lang="scss">
+@import '@/assets/styles/index.scss';
 </style>

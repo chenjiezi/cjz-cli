@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-06-06 14:11:11
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-02 17:31:17
+ * @LastEditTime: 2022-08-03 11:51:13
  */
 
 import Vue from 'vue'
@@ -19,16 +19,8 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-
-// class Demo {
-//   constructor() {
-//     const a = 'asd'
-//     console.log('demo', a)
-//   }
-// }
-
 function Demo() {
-  const a = 'asd'
+  const a = 'asd2saasasasas'
   console.log('demo', a)
 }
 

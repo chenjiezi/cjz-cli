@@ -17,3 +17,7 @@ devServer {
 
 Q:webpack5热更新失效，且只有css修改后失效
 A:https://blog.csdn.net/weixin_42349568/article/details/124287361
+
+Q:构建生成的js文件中还存在ES6语法(=>、const)没被转为ES5语法
+
+Q:runtime bundle 是什么
