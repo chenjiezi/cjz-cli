@@ -1,9 +1,15 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
+const paths = require('./paths.js')
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
+  output: {
+    publicPath: paths.prodPublicPath,
+  },
   optimization: {
     minimizer: [
       new CssMinimizerPlugin(),
@@ -26,7 +32,6 @@ module.exports = merge(common, {
           'sass-loader'
         ]
       },
-      // Asset Modules
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',

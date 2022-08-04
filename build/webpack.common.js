@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:05
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-04 19:13:26
+ * @LastEditTime: 2022-08-04 19:33:33
  */
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -22,7 +22,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': paths.src,
-      'public': paths.public
+      public: paths.public
     },
   },
   optimization: {
@@ -38,6 +38,11 @@ module.exports = {
     }
   },
   plugins: [
+    new HtmlwebpackPlugin({
+      title: 'cjz-cli',
+      favicon: paths.public + '/favicon.ico',
+      template: paths.public + '/index.html'
+    }),
     new VueLoaderPlugin()
   ],
   module: {
