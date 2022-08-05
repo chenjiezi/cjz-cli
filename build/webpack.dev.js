@@ -3,7 +3,7 @@
 * @Author: chenjz
 * @Date: 2022-08-04 17:55:04
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-04 20:49:22
+ * @LastEditTime: 2022-08-05 15:34:56
 */
 
 // TODO: devServer终端显示内容自定义
@@ -19,9 +19,7 @@ module.exports = merge(common, {
     publicPath: paths.devPublicPath,
   },
   devtool: 'inline-source-map',
-  devServer: {
-    open: paths.devPublicPath
-  },
+  devServer: {},
   plugins: [
     // bundle体积可视化
     // new BundleAnalyzerPlugin(),
