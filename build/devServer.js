@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 20:32:57
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-08 19:56:49
+ * @LastEditTime: 2022-08-08 20:02:00
  */
 const Webpack = require('webpack');
 const chalk = require('chalk');
@@ -11,11 +11,11 @@ const WebpackDevServer = require('webpack-dev-server');
 const path = require('path');
 
 const webpackConfig = require('./webpack.dev.js');
-const compiler = Webpack(webpackConfig);
 const devServerOptions = {
   ...webpackConfig.devServer,
   host: WebpackDevServer.internalIPSync('v4')
 };
+const compiler = Webpack(webpackConfig);
 const server = new WebpackDevServer(devServerOptions, compiler);
 
 const runServer = async () => {
@@ -30,6 +30,7 @@ const runServer = async () => {
     const { publicPath } = webpackConfig.output
     const local = `http://localhost:${port}${publicPath}`
     const network = `http://${host}:${port}${publicPath}`
+
     console.log()
     console.log(`  App running at:`)
     console.log(`  - Local:   ${chalk.cyan(local)}`)
