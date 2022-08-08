@@ -3,9 +3,10 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:05
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-04 19:33:33
+ * @LastEditTime: 2022-08-08 16:15:45
  */
 const HtmlwebpackPlugin = require('html-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { VueLoaderPlugin } = require('vue-loader')
 
 const paths = require('./paths.js')
@@ -41,9 +42,11 @@ module.exports = {
     new HtmlwebpackPlugin({
       title: 'cjz-cli',
       favicon: paths.public + '/favicon.ico',
-      template: paths.public + '/index.html'
+      template: paths.public + '/index.html',
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    // bundle体积可视化
+    // new BundleAnalyzerPlugin()
   ],
   module: {
     rules: [

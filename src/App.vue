@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-01 22:07:34
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-04 16:59:12
+ * @LastEditTime: 2022-08-08 19:57:22
 -->
 <template>
   <div id="app">
@@ -12,11 +12,10 @@
 </template>
 
 <script>
-import {notice} from './order'
 export default {
   name: 'App',
   mounted () {
-    notice[0].list['功率'].change()
+    console.log(12)
   }
 }
 </script>
