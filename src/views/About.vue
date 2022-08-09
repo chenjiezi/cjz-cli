@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-02 10:33:53
+ * @LastEditTime: 2022-08-09 14:53:17
 -->
 <template>
   <div class="About">
@@ -30,4 +30,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.About {
+  h1 {
+    color: pink;
+  }
+}
 </style>
