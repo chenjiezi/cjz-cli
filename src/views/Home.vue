@@ -3,11 +3,11 @@
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-04 15:44:26
+ * @LastEditTime: 2022-08-09 10:31:28
 -->
 <template>
   <div class="Home">
-    <h1>Home1</h1>
+    <h1>Home</h1>
     <div>{{ $store.state.count }}</div>
     <button @click="$store.commit('increment')">+</button>
   </div>
@@ -26,6 +26,7 @@ export default {
   computed: {},
   watch: {},
   created() {
+    console.log(2)
   },
   mounted() { },
   methods: {}

@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:05
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-08 16:15:45
+ * @LastEditTime: 2022-08-09 11:28:06
  */
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
@@ -12,6 +12,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const paths = require('./paths.js')
 
 module.exports = {
+  // profile: true,
   entry: {
     index: paths.src + '/main.js',
   },

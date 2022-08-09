@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:04
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-08 19:57:16
+ * @LastEditTime: 2022-08-09 10:29:59
  */
 
 const { merge } = require("webpack-merge")
@@ -11,6 +11,7 @@ const common = require('./webpack.common.js')
 const paths = require('./paths.js')
 
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -23,6 +24,7 @@ module.exports = merge(common, {
     open: [paths.devPublicPath]
   },
   plugins: [
+    new DashboardPlugin(),
     new FriendlyErrorsWebpackPlugin()
   ],
   module: {
