@@ -3,11 +3,11 @@
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-09 14:53:17
+ * @LastEditTime: 2022-08-10 10:24:01
 -->
 <template>
   <div class="About">
-    <h1>About</h1>
+    <h1>About1</h1>
   </div>
 </template>
 
@@ -24,7 +24,10 @@ export default {
   computed: {},
   watch: {},
   created() { },
-  mounted() { },
+  mounted() {
+    console.log (1);
+    console.log(1);
+  },
   methods: {}
 };
 </script>
