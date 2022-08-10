@@ -1,6 +1,15 @@
 {
-  // 保存后自动修复格式
+  /* 代码格式配置*/
+  "[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "vscode.css-language-features"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
 }

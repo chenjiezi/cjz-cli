@@ -4,42 +4,50 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: [
-    'plugin:vue/essential',
-    'standard'
-  ],
+  extends: ['plugin:vue/essential', 'standard'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'vue'
-  ],
+  plugins: ['vue'],
   rules: {
-    'vue/first-attribute-linebreak': ['error', {
-      singleline: 'ignore',
-      multiline: 'below'
-    }],
-    'vue/html-indent': ['error', 2, {
-      attribute: 1,
-      baseIndent: 1,
-      closeBracket: 0,
-      alignAttributesVertically: true,
-      ignores: []
-    }],
-    'vue/html-quotes': ['error', 'double', { avoidEscape: false }],
-    'vue/html-closing-bracket-newline': ['error', {
-      singleline: 'never',
-      multiline: 'always'
-    }],
-    'vue/max-attributes-per-line': ['error', {
-      singleline: {
-        max: 1
-      },
-      multiline: {
-        max: 1
+    'vue/first-attribute-linebreak': [
+      'error',
+      {
+        singleline: 'ignore',
+        multiline: 'below'
       }
-    }],
+    ],
+    'vue/html-indent': [
+      'error',
+      2,
+      {
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+        ignores: []
+      }
+    ],
+    'vue/html-quotes': ['error', 'double', { avoidEscape: false }],
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        singleline: 'never',
+        multiline: 'always'
+      }
+    ],
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: {
+          max: 1
+        },
+        multiline: {
+          max: 1
+        }
+      }
+    ],
     'vue/no-reserved-component-names': ['off'],
     'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
     'vue/multi-word-component-names': 'off',
