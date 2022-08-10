@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:04
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-10 14:26:31
+ * @LastEditTime: 2022-08-10 17:43:15
  */
 
 const { merge } = require('webpack-merge');
@@ -34,7 +34,8 @@ module.exports = merge(common, {
         use: [
           'vue-style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+          'postcss-loader'
         ]
       }
     ]

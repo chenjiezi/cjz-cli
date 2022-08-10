@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:05
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-10 14:20:16
+ * @LastEditTime: 2022-08-10 17:27:00
  */
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -40,14 +40,14 @@ module.exports = {
     }
   },
   plugins: [
+    // bundle体积可视化
+    // new BundleAnalyzerPlugin(),
     new HtmlwebpackPlugin({
       title: 'cjz-cli',
       favicon: paths.public + '/favicon.ico',
       template: paths.public + '/index.html'
     }),
     new VueLoaderPlugin()
-    // bundle体积可视化
-    // new BundleAnalyzerPlugin()
   ],
   module: {
     rules: [

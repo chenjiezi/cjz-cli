@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-01 22:07:34
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-10 10:05:46
+ * @LastEditTime: 2022-08-10 18:09:56
 -->
 <template>
   <div id="app">
@@ -15,11 +15,12 @@
 export default {
   name: 'App',
   mounted () {
-    console.log(12)
+    console.log(12);
   }
-}
+};
 </script>
 
 <style lang="scss">
 @import '@/assets/styles/index.scss';
+
 </style>

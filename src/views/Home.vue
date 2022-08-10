@@ -3,13 +3,14 @@
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-10 14:17:01
+ * @LastEditTime: 2022-08-10 18:23:21
 -->
 <template>
   <div class="Home">
     <h1>Home</h1>
     <div>{{ $store.state.count }}</div>
     <button @click="$store.commit('increment')">+</button>
+    <div class="text-red-500">test</div>
   </div>
 </template>
 
@@ -36,4 +37,8 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+::placeholder {
+  color: gray;
+}
+
 </style>
