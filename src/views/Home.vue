@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-09 10:31:28
+ * @LastEditTime: 2022-08-10 14:17:01
 -->
 <template>
   <div class="Home">
@@ -18,17 +18,19 @@
 export default {
   name: 'Home',
   components: {},
-  data() {
+  data () {
     return {
 
     };
   },
   computed: {},
   watch: {},
-  created() {
-    console.log(2)
+  created () {
+    console.log(2);
   },
-  mounted() { },
+  mounted () {
+
+  },
   methods: {}
 };
 </script>

@@ -1,14 +1,13 @@
 /*
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-04 20:32:57
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-08 20:02:00
+ * @LastEditTime: 2022-08-10 14:19:59
  */
 const Webpack = require('webpack');
 const chalk = require('chalk');
 const WebpackDevServer = require('webpack-dev-server');
-const path = require('path');
 
 const webpackConfig = require('./webpack.dev.js');
 const devServerOptions = {
@@ -26,18 +25,17 @@ const runServer = async () => {
       return;
     }
 
-    const { host, port } = server.options
-    const { publicPath } = webpackConfig.output
-    const local = `http://localhost:${port}${publicPath}`
-    const network = `http://${host}:${port}${publicPath}`
+    const { host, port } = server.options;
+    const { publicPath } = webpackConfig.output;
+    const local = `http://localhost:${port}${publicPath}`;
+    const network = `http://${host}:${port}${publicPath}`;
 
-    console.log()
-    console.log(`  App running at:`)
-    console.log(`  - Local:   ${chalk.cyan(local)}`)
-    console.log(`  - Network: ${chalk.cyan(network)}`)
-    console.log()
-
-  })
+    console.log();
+    console.log(`  App running at:`);
+    console.log(`  - Local:   ${chalk.cyan(local)}`);
+    console.log(`  - Network: ${chalk.cyan(network)}`);
+    console.log();
+  });
 
   await server.start();
 };

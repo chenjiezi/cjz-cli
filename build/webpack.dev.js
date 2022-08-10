@@ -1,24 +1,24 @@
 /*
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:04
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-09 10:29:59
+ * @LastEditTime: 2022-08-10 14:26:31
  */
 
-const { merge } = require("webpack-merge")
-const common = require('./webpack.common.js')
-const paths = require('./paths.js')
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+const paths = require('./paths.js');
 
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const DashboardPlugin = require('webpack-dashboard/plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = merge(common, {
   mode: 'development',
   output: {
-    publicPath: paths.devPublicPath,
+    publicPath: paths.devPublicPath
   },
-  stats: "errors-warnings",
+  stats: 'errors-warnings',
   devtool: 'inline-source-map',
   devServer: {
     open: [paths.devPublicPath]
@@ -39,4 +39,4 @@ module.exports = merge(common, {
       }
     ]
   }
-})
+});

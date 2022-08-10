@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-02 10:33:22
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-10 10:24:01
+ * @LastEditTime: 2022-08-10 14:36:16
 -->
 <template>
   <div class="About">
@@ -16,16 +16,16 @@
 export default {
   name: 'About',
   components: {},
-  data() {
+  data () {
     return {
 
     };
   },
   computed: {},
   watch: {},
-  created() { },
-  mounted() {
-    console.log (1);
+  created () { },
+  mounted () {
+    console.log(1);
     console.log(1);
   },
   methods: {}

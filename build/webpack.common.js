@@ -1,20 +1,20 @@
 /*
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:05
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-09 11:28:06
+ * @LastEditTime: 2022-08-10 14:20:16
  */
-const HtmlwebpackPlugin = require('html-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const { VueLoaderPlugin } = require('vue-loader')
+const HtmlwebpackPlugin = require('html-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { VueLoaderPlugin } = require('vue-loader');
 
-const paths = require('./paths.js')
+const paths = require('./paths.js');
 
 module.exports = {
   // profile: true,
   entry: {
-    index: paths.src + '/main.js',
+    index: paths.src + '/main.js'
   },
   output: {
     filename: 'static/js/[name].[contenthash].js',
@@ -25,7 +25,7 @@ module.exports = {
     alias: {
       '@': paths.src,
       public: paths.public
-    },
+    }
   },
   optimization: {
     runtimeChunk: 'single',
@@ -34,7 +34,7 @@ module.exports = {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all',
+          chunks: 'all'
         }
       }
     }
@@ -43,9 +43,9 @@ module.exports = {
     new HtmlwebpackPlugin({
       title: 'cjz-cli',
       favicon: paths.public + '/favicon.ico',
-      template: paths.public + '/index.html',
+      template: paths.public + '/index.html'
     }),
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin()
     // bundle体积可视化
     // new BundleAnalyzerPlugin()
   ],
@@ -57,7 +57,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
+              presets: ['@babel/preset-env']
             }
           }
         ]
@@ -68,4 +68,4 @@ module.exports = {
       }
     ]
   }
-}
+};
