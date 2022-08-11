@@ -1,9 +1,9 @@
 /*
- * @Description: 
+ * @Description:
  * @Author: chenjz
  * @Date: 2022-08-02 10:32:34
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-03 15:46:51
+ * @LastEditTime: 2022-08-11 10:03:05
  */
 
 export default [
@@ -26,4 +26,4 @@ export default [
     name: 'Test',
     component: () => import(/* webpackChunkName: "group-common" */'@/views/Test.vue')
   }
-]
+];

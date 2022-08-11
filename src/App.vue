@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-01 22:07:34
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-10 18:09:56
+ * @LastEditTime: 2022-08-11 10:02:22
 -->
 <template>
   <div id="app">
@@ -13,10 +13,7 @@
 
 <script>
 export default {
-  name: 'App',
-  mounted () {
-    console.log(12);
-  }
+  name: 'App'
 };
 </script>
 
