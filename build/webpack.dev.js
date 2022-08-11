@@ -3,7 +3,7 @@
  * @Author: chenjz
  * @Date: 2022-08-04 17:55:04
  * @LastEditors: chenjz
- * @LastEditTime: 2022-08-11 10:00:08
+ * @LastEditTime: 2022-08-11 11:12:10
  */
 
 const { merge } = require('webpack-merge');
@@ -16,12 +16,12 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 module.exports = merge(common, {
   mode: 'development',
   output: {
-    publicPath: paths.devPublicPath
+    publicPath: paths.publicPath
   },
   stats: 'errors-warnings',
   devtool: 'inline-source-map',
   devServer: {
-    open: [paths.devPublicPath]
+    open: [paths.publicPath]
   },
   plugins: [
     new DashboardPlugin(),
